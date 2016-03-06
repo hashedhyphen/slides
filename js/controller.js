@@ -1,3 +1,5 @@
+'use strict';
+
 document.addEventListener(`DOMContentLoaded`, ev => {
   const $$ = query => document.querySelectorAll(query),
         container = $$(`.container`)[0],
