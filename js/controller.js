@@ -1,3 +1,5 @@
+/* global hljs */
+
 'use strict';
 
 document.addEventListener(`DOMContentLoaded`, ev => {
@@ -59,6 +61,7 @@ document.addEventListener(`DOMContentLoaded`, ev => {
     location.hash = slideID;
   };
 
+  // eslint-disable-next-line consistent-return
   document.addEventListener(`keydown`, ev => {
     if (ev.key) {
       switch (ev.key) {
@@ -107,11 +110,11 @@ document.addEventListener(`DOMContentLoaded`, ev => {
 
   // resize events and listeners
   const adjustScale = () => {
-    const denominator = Math.max(
-      container.clientWidth  / window.innerWidth,
-      container.clientHeight / window.innerHeight
+    const factor = Math.min(
+      window.innerWidth  / container.clientWidth,
+      window.innerHeight / container.clientHeight
     );
-    container.style.transform = `scale(${1 / denominator})`;
+    container.style.transform = `scale(${factor})`;
   };
 
   window.addEventListener(`resize`, adjustScale, false);
