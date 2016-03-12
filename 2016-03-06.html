@@ -4,54 +4,46 @@
   <meta charset="utf-8">
   <title>Firefox との付き合い方</title>
 
-  <link rel="stylesheet" href="css/build/framework.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="css/build/framework.css">
 
-  <script src="js/controller.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
+  <script src="js/controller.js"></script>
 </head>
 <body>
   <div class="container">
-    <section>
-      <div id="cover" class="slide slide-cover">
-        <h1 class="cover-title">Firefox との付き合い方</h1>
-        <div class="metadata">
-          <div class="name"><small>@hashedhyphen</small></div>
-          <div class="occasion"><small>Dentoo.LT #13 <time datetime="2016-03-06">2016-03-06</time></small></div>
-        </div>
+    <section id="cover" class="slide slide--cover">
+      <h1 class="slide__cover-title">Firefox との付き合い方</h1>
+      <div class="metadata">
+        <p class="metadata__name">@hashedhyphen</p>
+        <p class="metadata__occasion">Dentoo.LT #13 <time datetime="2016-03-06">2016-03-06</time></p>
       </div>
     </section>
 
-    <section>
-      <div id="intro1" class="slide slide-splitter">
-        <div><span>masawada さん</span></div>
-        <div><span>ご卒業おめでとうございます！</span></div>
+    <section id="intro1" class="slide slide--attention">
+      <p class="slide__center-text">masawada さん<br>ご卒業おめでとうございます！</p>
+    </section>
+
+    <section id="intro2" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">でもお会いしたこと一度もない</h2>
+      </header>
+
+      <div class="slide-contents">
+        <p>電通大とも MMA とも全く関係がない</p>
+        <ul>
+          <li>Dentoo.LT も初参加
+          <li>先頭に「祝ご卒業」と入れれば、何を話しても許されるだろうか
+        </ul>
       </div>
     </section>
 
-    <section>
-      <div id="intro2" class="slide">
-        <header>
-          <h2 class="slide-title">でもお会いしたこと一度もない</h2>
-        </header>
+    <section id="whoami" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">Hello!</h2>
+      </header>
 
-        <div class="slide-contents">
-          <p>電通大とも MMA とも全く関係がない</p>
-          <ul>
-            <li>Dentoo.LT も初参加
-            <li>先頭に「祝ご卒業」と入れれば、何を話しても許されるだろうか
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div id="whoami" class="slide">
-        <header>
-          <h2 class="slide-title">Hello!</h2>
-        </header>
-
-        <div class="slide-contents">
+      <div class="slide-contents">
 <pre><code class="js">const self = {
   name: `Hashed Hyphen`,
   langs: [ `JavaScript` /*, etc... */ ],
@@ -63,239 +55,205 @@
   state: `某大学の B4 になれるはず？`
 };
 </code></pre>
+      </div>
+    </section>
+
+    <section id="webappsec-csp" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">Content Security Policy に PR</h2>
+      </header>
+
+      <div class="slide-contents center-row">
+        <img id="img-csp" src="img/csp.png" alt="CSP on GitHub">
+      </div>
+    </section>
+
+    <section id="agenda" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">今日話すこと</h2>
+      </header>
+
+      <div class="slide-contents">
+        <p>Firefox に関するゆるい話をします</p>
+        <ul>
+          <li>Firefox へのバグ報告
+          <li>DevTools Reload
+          <li>デモ: Web Console に嫁を具現化
+        </ul>
+      </div>
+    </section>
+
+    <section id="bag-report" class="slide slide--splitter">
+      <h2 class="center-texxt">Firefox へのバグ報告</h2>
+    </section>
+
+    <section id="what-to-report" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">"Bug" として報告するもの</h2>
+      </header>
+
+      <div class="slide-contents">
+        <p>Firefox のバグ・パッチ・要望などはすべて "Bug" として Bugzilla に集約される。</p>
+        <ul>
+          <li>セキュリティバグだけじゃない
+          <li>XPS で印刷するとクラッシュ
+          <li>Flexbox のレンダリング結果がおかしい
+          <li>日本語入力ができない
+          <li>これらは実際に報告される "Bug"
+        </ul>
+      </div>
+    </section>
+
+    <section id="case-study" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">実際に報告した Bug</h2>
+      </header>
+
+      <div class="slide-contents">
+        <p><a href="https://bugzil.la/1240170" target="_blank">Bug 1240170</a> - Japanese IME won't join a consonant and a vowel on TweetDeck's Tweet field</p>
+        <div class="center-row">
+          <img id="img-tweetdeck" src="img/tweetdeck.jpg" alt="TweetDeck with IME">
         </div>
       </div>
     </section>
 
-    <section>
-      <div id="webappsec-csp" class="slide">
-        <header>
-          <h2 class="slide-title">Content Security Policy に PR</h2>
-        </header>
+    <section id="ime-issue" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">IME/TSF のバグについて</h2>
+      </header>
 
-        <div class="slide-contents center-row">
-          <img id="img-csp" src="img/csp.png" alt="CSP on GitHub">
-        </div>
+      <div class="slide-contents">
+        <p>世界と比較した場合、IME のユーザ・開発者は主流でないかもしれない…？</p>
+        <ul>
+          <li>Bugzilla に加え、IME 周りのバグをハンドリングする人に直接コンタクトするべき…？
+          <li>とはいえ、Firefox の IME 関連はレスポンスが速い気がする
+          <li>自分の中にまだ答えがない（たぶん杞憂）
+        </ul>
       </div>
     </section>
 
-    <section>
-      <div id="agenda" class="slide">
-        <header>
-          <h2 class="slide-title">今日話すこと</h2>
-        </header>
+    <section id="why-report-bug" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">なぜバグ報告をするのか</h2>
+      </header>
 
-        <div class="slide-contents">
-          <p>Firefox に関するゆるい話をします</p>
+      <div class="slide-contents">
+        <p>たぶんボランティア意識だけではない</p>
+        <ul>
+          <li>見過ごしていると、いずれは Web 開発者の自分にツケが回ってくる
+          <li>将来の自分が開発で楽できるように
+          <li>Web を作る側の責務？（使う側ではない）
+          <li>自分もまだ慣れない（dupe 多い…）
+        </ul>
+      </div>
+    </section>
+
+    <section id="where-to-go" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">バグを踏んだ。まずすべきは</h2>
+      </header>
+
+      <div class="slide-contents two-columns">
+        <div>
+          <p>Twitter で愚痴らずに</p>
+          <img id="img-twitter" src="img/not_twitter.jpg" alt="not twitter">
+        </div>
+        <div>
+          <p>既知のバグを探す！</p>
           <ul>
-            <li>Firefox へのバグ報告
-            <li>DevTools Reload
-            <li>デモ: Web Console に嫁を具現化
+            <li><a href="https://bugzilla.mozilla.org/" target="_blank">Firefox</a>
+            <li><a href="https://bugs.chromium.org/p/chromium/issues/list" target="_blank">Chromium</a>
+            <li><a href="https://connect.microsoft.com/IE" target="_blank">Edge</a>
           </ul>
         </div>
       </div>
     </section>
 
-    <section>
-      <div id="bag-report" class="slide slide-splitter">
-        <h2>Firefox へのバグ報告</h2>
+    <section id="devtools-reload" class="slide slide--splitter">
+      <h2 class="slide__center-text">DevTools Reload</h2>
+    </section>
+
+    <section id="summary" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">DevTools Reload</h2>
+      </header>
+
+      <div class="slide-contents">
+        <p>2/24 に<a href="https://hacks.mozilla.org/2016/02/introducing-devtools-reload/" target="_blank">ブログ発表</a>された Mozilla 製アドオン</p>
+        <ul>
+          <li>Firefox Developer Tool をハックしやすく
+          <li>Web 開発者もコントリビュートしやすく
+          <li>Ctrl + Alt + R 一発でコード変更を反映
+          <li>ビルド環境を整える必要がない
+        </ul>
       </div>
     </section>
 
-    <section>
-      <div id="what-to-report" class="slide">
-        <header>
-          <h2 class="slide-title">"Bug" として報告するもの</h2>
-        </header>
+    <section id="usage" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">使ってみる</h2>
+      </header>
 
-        <div class="slide-contents">
-          <p>Firefox のバグ・パッチ・要望などはすべて "Bug" として Bugzilla に集約される。</p>
-          <ul>
-            <li>セキュリティバグだけじゃない
-            <li>XPS で印刷するとクラッシュ
-            <li>Flexbox のレンダリング結果がおかしい
-            <li>日本語入力ができない
-            <li>これらは実際に報告される "Bug"
-          </ul>
-        </div>
+      <div class="slide-contents">
+        <p><a href="https://developer.mozilla.org/ja/docs/Tools/Contributing/Contribute_on_nightly" target="_blank">MDN の記事</a>に詳しく載ってる</p>
+        <ol>
+          <li>Firefox Nightly をインストール
+          <li>git clone --depth 1 で shallow clone
+          <li>アドオンを Nightly にインストール
+          <li>ソースコードをいじる (XML/CSS/JS)
+          <li>Ctrl + Alt + R でリロード
+          <li>手順 4 - 5 を繰り返す
+        </ol>
       </div>
     </section>
 
-    <section>
-      <div id="case-study" class="slide">
-        <header>
-          <h2 class="slide-title">実際に報告した Bug</h2>
-        </header>
+    <section id="tips" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">知っておくとよいこと</h2>
+      </header>
 
-        <div class="slide-contents">
-          <p><a href="https://bugzil.la/1240170" target="_blank">Bug 1240170</a> - Japanese IME won't join a consonant and a vowel on TweetDeck's Tweet field</p>
-          <div class="center-row">
-            <img id="img-tweetdeck" src="img/tweetdeck.jpg" alt="TweetDeck with IME">
-          </div>
-        </div>
+      <div class="slide-contents">
+        <p>devtools/client 配下がいじりやすい</p>
+        <ul>
+          <li>chrome://devtools/content/foo は<br>devtools/client/foo に解決される
+          <li>chrome://devtools/skin/foo は<br>devtools/client/themes/foo に解決される
+          <li><a href="https://developer.mozilla.org/ja/docs/Tools/Browser_Toolbox" target="_blank">Browser Toolbox</a> はいいぞ
+        </ul>
       </div>
     </section>
 
-    <section>
-      <div id="ime-issue" class="slide">
-        <header>
-          <h2 class="slide-title">IME/TSF のバグについて</h2>
-        </header>
+    <section id="demo" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">デモ</h2>
+      </header>
 
-        <div class="slide-contents">
-          <p>世界と比較した場合、IME のユーザ・開発者は主流でないかもしれない…？</p>
-          <ul>
-            <li>Bugzilla に加え、IME 周りのバグをハンドリングする人に直接コンタクトするべき…？
-            <li>とはいえ、Firefox の IME 関連はレスポンスが速い気がする
-            <li>自分の中にまだ答えがない（たぶん杞憂）
-          </ul>
-        </div>
+      <div class="slide-contents">
+        <p>Web Console に嫁を具現化してみる</p>
       </div>
     </section>
 
-    <section>
-      <div id="why-report-bug" class="slide">
-        <header>
-          <h2 class="slide-title">なぜバグ報告をするのか</h2>
-        </header>
+    <section id="ad" class="slide slide--splitter">
+      <h2 class="slide__center-text">宣伝</h2>
+    </section>
 
-        <div class="slide-contents">
-          <p>たぶんボランティア意識だけではない</p>
-          <ul>
-            <li>見過ごしていると、いずれは Web 開発者の自分にツケが回ってくる
-            <li>将来の自分が開発で楽できるように
-            <li>Web を作る側の責務？（使う側ではない）
-            <li>自分もまだ慣れない（dupe 多い…）
-          </ul>
-        </div>
+    <section id="ltimer" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">LTimer</h2>
+      </header>
+
+      <div class="slide-contents">
+        <p>Electron + React で LT 用のタイマーを作りました。</p>
+        <ul>
+          <li>GitHub - <a href="https://github.com/hashedhyphen/ltimer-electron" target="_blank">hashedhyphen/ltimer-electron</a>
+          <li>ほぼほぼ ES2015+ で書いてるつもり
+          <li>テストがない
+          <li>Issue/PR お待ちしてます
+        </ul>
       </div>
     </section>
 
-    <section>
-      <div id="where-to-go" class="slide">
-        <header>
-          <h2 class="slide-title">バグを踏んだ。まずすべきは</h2>
-        </header>
-
-        <div class="slide-contents two-columns">
-          <div>
-            <p>Twitter で愚痴らずに</p>
-            <img id="img-twitter" src="img/not_twitter.jpg" alt="not twitter">
-          </div>
-          <div>
-            <p>既知のバグを探す！</p>
-            <ul>
-              <li><a href="https://bugzilla.mozilla.org/" target="_blank">Firefox</a>
-              <li><a href="https://bugs.chromium.org/p/chromium/issues/list" target="_blank">Chromium</a>
-              <li><a href="https://connect.microsoft.com/IE" target="_blank">Edge</a>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div id="devtools-reload" class="slide slide-splitter">
-        <h2>DevTools Reload</h2>
-      </div>
-    </section>
-
-    <section>
-      <div id="summary" class="slide">
-        <header>
-          <h2 class="slide-title">DevTools Reload</h2>
-        </header>
-
-        <div class="slide-contents">
-          <p>2/24 に<a href="https://hacks.mozilla.org/2016/02/introducing-devtools-reload/" target="_blank">ブログ発表</a>された Mozilla 製アドオン</p>
-          <ul>
-            <li>Firefox Developer Tool をハックしやすく
-            <li>Web 開発者もコントリビュートしやすく
-            <li>Ctrl + Alt + R 一発でコード変更を反映
-            <li>ビルド環境を整える必要がない
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div id="usage" class="slide">
-        <header>
-          <h2 class="slide-title">使ってみる</h2>
-        </header>
-
-        <div class="slide-contents">
-          <p><a href="https://developer.mozilla.org/ja/docs/Tools/Contributing/Contribute_on_nightly" target="_blank">MDN の記事</a>に詳しく載ってる</p>
-          <ol>
-            <li>Firefox Nightly をインストール
-            <li>git clone --depth 1 で shallow clone
-            <li>アドオンを Nightly にインストール
-            <li>ソースコードをいじる (XML/CSS/JS)
-            <li>Ctrl + Alt + R でリロード
-            <li>手順 4 - 5 を繰り返す
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div id="tips" class="slide">
-        <header>
-          <h2 class="slide-title">知っておくとよいこと</h2>
-        </header>
-
-        <div class="slide-contents">
-          <p>devtools/client 配下がいじりやすい</p>
-          <ul>
-            <li>chrome://devtools/content/foo は<br>devtools/client/foo に解決される
-            <li>chrome://devtools/skin/foo は<br>devtools/client/themes/foo に解決される
-            <li><a href="https://developer.mozilla.org/ja/docs/Tools/Browser_Toolbox" target="_blank">Browser Toolbox</a> はいいぞ
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div id="demo" class="slide">
-        <header>
-          <h2 class="slide-title">デモ</h2>
-        </header>
-
-        <div class="slide-contents">
-          <p>Web Console に嫁を具現化してみる</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div id="ad" class="slide slide-splitter">
-        <h2>宣伝</h2>
-      </div>
-    </section>
-
-    <section>
-      <div id="ltimer" class="slide">
-        <header>
-          <h2 class="slide-title">LTimer</h2>
-        </header>
-
-        <div class="slide-contents">
-          <p>Electron + React で LT 用のタイマーを作りました。</p>
-          <ul>
-            <li>GitHub - <a href="https://github.com/hashedhyphen/ltimer-electron" target="_blank">hashedhyphen/ltimer-electron</a>
-            <li>ほぼほぼ ES2015+ で書いてるつもり
-            <li>テストがない
-            <li>Issue/PR お待ちしてます
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div id="install-now" class="slide slide-splitter">
-        <div><span>あなたと LTIMER,</span></div>
-        <div><span>今すぐ npm i -g ltimer</span></div>
-      </div>
+    <section id="install-now" class="slide slide--attention">
+      <p class="slide__center-text">あなたと LTIMER,<br>今すぐ npm i -g ltimer</p>
     </section>
 
     <footer>
