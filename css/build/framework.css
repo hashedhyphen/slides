@@ -126,72 +126,74 @@ code {
   padding: 2% 7%;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: #FFF;
   opacity: 0;
   transition: opacity 0.3s; }
 
-.slide > header {
+.slide--cover {
+  background-color: #269;
+  color: #FFF; }
+
+.slide--splitter {
+  background-color: #00db57;
+  color: #FFF; }
+
+.slide--attention {
+  background-color: #FE7070;
+  color: #FFF; }
+
+.slide__cover-title {
+  line-height: 2.0;
+  font-weight: bold;
+  font-size: 1.3rem; }
+
+.slide__center-text {
+  line-height: 1.5;
+  text-align: center;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 1.3rem; }
+
+.heading {
   width: 100%;
   height: 15%; }
 
-.slide > header > .slide-title {
+.heading__title {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   font-weight: bold;
-  font-size: 1.3rem; }
+  font-size: 1.2rem; }
 
-.slide > .slide-contents {
+.slide-contents {
+  width: 100%;
   height: 85%; }
 
-.slide > .slide-contents p {
+.slide-contents p {
   margin: 0.5rem 0 0.7rem 0;
   line-height: 1.3; }
 
-.slide > .slide-contents ul,
-.slide > .slide-contents ol {
+.slide-contents ul,
+.slide-contents ol {
   padding-left: 1.0rem;
   line-height: 1.5; }
 
-.slide > .slide-contents ul > li,
-.slide > .slide-contents ol > li {
+.slide-contents ul > li,
+.slide-contents ol > li {
   margin-bottom: 0.3rem; }
 
-.slide.slide-splitter {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #00db57; }
-
-.slide.slide-splitter > h2,
-.slide.slide-splitter > div {
-  margin: 0.4rem 0;
-  font-weight: bold;
-  font-size: 1.3rem;
-  color: #FFF; }
-
-.slide-cover {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #269;
-  color: #FFF; }
-
-.slide-cover > .cover-title {
-  margin: 0.8rem 0;
-  font-weight: bold;
-  font-size: 1.3rem; }
-
-.slide-cover > .metadata {
+.metadata {
   display: flex;
   flex-direction: column;
   align-items: center; }
 
-.slide-cover > .metadata > .name,
-.slide-cover > .metadata > .occasion {
+.metadata__name,
+.metadata__occasion {
   margin: 0.2rem 0;
   font-size: 0.8rem; }
 

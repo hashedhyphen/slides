@@ -8,48 +8,35 @@
   width: 100%
   height: 100%
 
-  background-color: #FFF
-  opacity: 0
-  transition: opacity 0.3s
-
-.slide > header
-  width: 100%
-  height: 15%
-
-.slide > header > .slide-title
-  width: 100%
-  height: 100%
-  display: flex
-  align-items: center
-  font-weight: bold
-  font-size: 1.3rem
-
-.slide > .slide-contents
-  height: 85%
-
-.slide > .slide-contents p
-  margin: 0.5rem 0 0.7rem 0
-  line-height: 1.3
-
-.slide > .slide-contents ul,
-.slide > .slide-contents ol
-  padding-left: 1.0rem
-  line-height: 1.5
-
-.slide > .slide-contents ul > li,
-.slide > .slide-contents ol > li
-  margin-bottom: 0.3rem
-
-.slide.slide-splitter
   display: flex
   flex-direction: column
   justify-content: center
   align-items: center
-  background-color: #00db57
 
-.slide.slide-splitter > h2,
-.slide.slide-splitter > div
-  margin: 0.4rem 0
+  background-color: #FFF
+  opacity: 0
+  transition: opacity 0.3s
+
+.slide--cover
+  background-color: #269
+  color: #FFF;
+
+.slide--splitter
+  background-color: #00db57
+  color: #FFF;
+
+.slide--attention
+  background-color: #FE7070
+  color: #FFF;
+
+.slide__cover-title
+  line-height: 2.0
   font-weight: bold
   font-size: 1.3rem
+
+.slide__center-text
+  line-height: 1.5;
+  text-align: center;
   color: #FFF
+  font-weight: bold
+  font-size: 1.3rem
