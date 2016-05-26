@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>OSS やってみた</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="css/build/framework.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
+  <script src="js/controller.js"></script>
+</head>
+<body>
+  <div class="container">
+    <section id="cover" class="slide slide--cover">
+      <h1 class="slide__cover-title">OSS やってみた</h1>
+      <div class="metadata">
+        <p class="metadata__name">id: hashedhyphen</p>
+        <p class="metadata__occasion">@M3 TechTalk #55 / <time datetime="2016-03-06">26 May 2016</time></p>
+      </div>
+    </section>
+
+    <section id="whoami" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">Hello!</h2>
+      </header>
+
+      <div class="slide-contents">
+<pre><code class="js">const self = {
+  name: 'Ryo Kato',
+  langs: [ 'JavaScript' /*, etc... */ ],
+  works: [
+    'LTimer (ES6 / React / Electron)',
+    'Twix (TypeScript)',
+    'Mozilla Security Blog 日本語版'
+  ],
+  state: '来年 4 月からお世話になります'
+};
+</code></pre>
+      </div>
+    </section>
+
+    <section id="oss-m3" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">OSS といえば</h2>
+      </header>
+
+      <div class="slide-contents center-row">
+        <img src="img/m3_github.jpg" alt="M3 on GitHub">
+      </div>
+    </section>
+
+    <section id="oss-personal" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">OSS といえば</h2>
+      </header>
+
+      <div class="slide-contents center-row">
+        <img src="img/personal_github.jpg" alt="personal activities on GitHub">
+      </div>
+    </section>
+
+    <section id="oss-gecko" class="slide slide--splitter">
+      <h2 class="slide__center-text">Gecko (Firefox)</h2>
+    </section>
+
+    <section id="assigned" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">今までに担当させていただいた Bug</h2>
+      </header>
+
+      <div class="slide-contents">
+        <ul>
+          <li><a href="https://bugzil.la/1244642">Bug 1244642</a> - JS API の実装
+          <li><a href="https://bugzil.la/1260353">Bug 1260353</a> - 不要なメソッドの削除
+          <li><a href="https://bugzil.la/1261561">Bug 1261561</a> - アニメーションの DevTools
+          <li><a href="https://bugzil.la/1255682">Bug 1255682</a> - テストの修正
+          <li><a href="https://bugzil.la/1244591">Bug 1244591</a> - JS API の実装
+          <li><a href="https://bugzil.la/1265274">Bug 1265274</a> - テストのリファクタリング
+          <li><a href="https://bugzil.la/1272204">Bug 1272204</a> - テストのリファクタリング
+        </ul>
+      </div>
+    </section>
+
+    <section id="opportunity" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">きっかけ</h2>
+      </header>
+
+      <div class="slide-contents">
+        <ul>
+          <li><a href="https://firefox.doorkeeper.jp/events/40852">Gecko inside #7：パッチを作ろうハンズオン</a>
+          <li>テーマは "WebAnimations" で登録
+          <li>参加要件に「C++ の経験があること」
+        </ul>
+
+        <p>実際は……</p>
+
+        <ul>
+          <li>参加登録してから C++ を勉強した
+          <li>独習 C++（第 4 版）
+          <li>Effective C++（第 3 版） 途中まで
+        </ul>
+      </div>
+    </section>
+
+    <section id="hands-on" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">ハンズオン当日</h2>
+      </header>
+
+      <div class="slide-contents">
+        <ul>
+          <li>メンターの方から教わりながら、実装・テスト・<a href="https://reviewboard.mozilla.org/r/42589/">レビュー</a>・修正のサイクルを一通り
+          <li>Spec Editor の方もメンターだったので、仕様に関する質問も直接聞けた
+          <li><a href="https://hg.mozilla.org/mozilla-central/rev/b51b8d9f8337">API 実装: C++ 5 行</a>（すでに設計済）
+          <li><a href="https://hg.mozilla.org/mozilla-central/rev/e8e94146b659">テスト: JavaScript 52 行</a>
+        </ul>
+      </div>
+    </section>
+
+    <section id="afterwards" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">後日</h2>
+      </header>
+
+      <div class="slide-contents">
+        <ul>
+          <li>メールや IRC でやり取り
+          <li>自分から挙手したり、「こんな Bug あるけどやってみない？」と知らせていただいたり
+          <li>土曜のオフィスで質問させてもらったり
+          <li>（最近は研究が忙しくてご無沙汰……）
+        </ul>
+      </div>
+    </section>
+
+    <section id="what-i-learned" class="slide slide--splitter">
+      <h2 class="slide__center-text">学んだこと</h2>
+    </section>
+
+    <section id="comment" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">/*コメント*/ の意義</h2>
+      </header>
+
+      <div class="slide-contents">
+        <ul>
+          <li>素晴らしいプログラマが書いたコードでも、素人の自分が直接読むのは難しい
+          <li>Class の先頭に「この Class の存在意義」がコメントの形で書かれていたりする
+          <li>先にコメントを読んでコンテキストを把握しておけば、コードが多少読みやすくなる
+          <li>（という当たり前のことを、いくつかパッチを書かせていただいてから気付く……）
+        </ul>
+      </div>
+    </section>
+
+    <section id="coding-style" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">コーディングスタイルの大切さ</h2>
+      </header>
+
+      <div class="slide-contents">
+        <ul>
+          <li>変数の種類ごとに prefix が決まっている
+          <li>グローバル: g / メンバ: m / 引数: a
+          <li>1k 行を超える C++ を泳ぐときに助かる
+          <li>道具として使える変数をエディタ上で検索できる（特にメンバ変数の m）
+        </ul>
+      </div>
+    </section>
+
+    <section id="test-writing" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">テストの書き方</h2>
+      </header>
+
+      <div class="slide-contents">
+        <ul>
+          <li>実装とテストは必ずセット
+          <li>テストも負債化しないように、適宜リファクタリングをする
+          <li>自分の趣味コードでもテストを書くように
+          <li>「テストを書く」ことに対する恐怖心の薄れ
+          <li>「テストを書きたい」という気持ちの変化
+        </ul>
+      </div>
+    </section>
+
+    <section id="etcetera" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">その他にも……</h2>
+      </header>
+
+      <div class="slide-contents">
+        <ul>
+          <li>英語でのコミュニケーション
+          <li>レビューにおけるやり取り
+          <li>コミットの分け方
+          <li>etc...
+        </ul>
+      </div>
+    </section>
+
+    <section id="workflow" class="slide slide--splitter">
+      <h2 class="slide__center-text">実際のワークフロー</h2>
+    </section>
+
+    <section id="guide" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">ドキュメント群</h2>
+      </header>
+
+      <div class="slide-contents">
+        <p>そのうちブログ書きます……</p>
+        <ul>
+          <li>基本的な全体像は <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Introduction">MDN</a> に書いてある
+          <li>コミットやレビューに関しては、以下のドキュメントが最新版かも
+          <li><a href="http://mozilla-version-control-tools.readthedocs.io/en/latest/hgmozilla/index.html">Mercurial (VCS) の使い方</a>
+          <li><a href="http://mozilla-version-control-tools.readthedocs.io/en/latest/mozreview.html">MozReview によるレビューの流れ</a>
+        </ul>
+      </div>
+    </section>
+
+    <section id="comming-soon" class="slide">
+      <header class="heading">
+        <h2 class="heading__title">ハンズオン第 2 回？</h2>
+      </header>
+
+      <div class="slide-contents">
+        <ul>
+          <li>あるはず（そう言ってた）
+          <li>おそらく「<a href="https://firefox.doorkeeper.jp/">Firefox コミュニティ</a>」の Doorkeeper で告知されるはず
+          <li>興味のある方はぜひ！
+          <li>Gecko inside / Mozilla コードリーディングミートアップ も
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <div class="progress"></div>
+    </footer>
+  </div>
+</body>
+</html>
