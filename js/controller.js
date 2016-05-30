@@ -12,6 +12,15 @@ document.addEventListener(`DOMContentLoaded`, ev => {
     slideMap.set(slides[i].id, i);
   }
 
+  // create a progress bar in the container
+  const footer = document.createElement(`footer`),
+        progress = document.createElement(`div`);
+
+  progress.setAttribute(`class`, `progress`);
+  footer.appendChild(progress);
+
+  container.appendChild(footer);
+
   let currentIndex = 0;
 
   const goToSlideAt = nextIndex => {
