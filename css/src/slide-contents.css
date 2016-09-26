@@ -1,0 +1,20 @@
+.slide-contents {
+  width: 100%;
+  height: 85%;
+}
+
+.slide-contents p {
+  margin: 0.5rem 0 0.7rem 0;
+  line-height: 1.3;
+}
+
+.slide-contents ul,
+.slide-contents ol {
+  padding-left: 1.0rem;
+  line-height: 1.5;
+}
+
+.slide-contents ul > li,
+.slide-contents ol > li {
+  margin-bottom: 0.3rem;
+}

@@ -1,18 +1,27 @@
 import gulp from 'gulp';
-import sass from 'gulp-sass';
-import eslint from 'gulp-eslint';
+
+import postcss from 'gulp-postcss';
+import atImport from 'postcss-import';
+import autoprefixer from 'autoprefixer';
 import sourcemaps from 'gulp-sourcemaps';
 
+import eslint from 'gulp-eslint';
+
 gulp.task(`build:css`, () => {
-  return gulp.src(`./css/src/framework.sass`)
+  return gulp.src(`./css/src/framework.css`)
     .pipe(sourcemaps.init())
-    .pipe(sass().on(`error`, sass.logError))
+    .pipe(postcss([
+      atImport,
+      autoprefixer({
+        browsers: [ `last 2 versions` ]
+      })
+    ]))
     .pipe(sourcemaps.write(`./maps`))
     .pipe(gulp.dest(`./css/build`));
 });
 
 gulp.task(`watch:css`, () => {
-  gulp.watch(`./css/src/*.sass`, gulp.series(`build:css`));
+  gulp.watch(`./css/src/*.css`, gulp.series(`build:css`));
 });
 
 gulp.task(`lint:js`, () => {
