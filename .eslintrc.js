@@ -1,11 +1,11 @@
 module.exports = {
   parserOptions: {
-    ecmaVersion: 7,
+    ecmaVersion: 2016,
     sourceType: 'module',
     ecmaFeatures: {
       globalReturn: true,
       impliedStrict: true,
-      jsx: true
+      //jsx: true
     }
   },
 
@@ -15,7 +15,7 @@ module.exports = {
     es6: true,
     worker: true,
     serviceworker: true,
-    webextensions: true
+    //webextensions: true,
   },
 
   //plugins: [ 'react' ],
